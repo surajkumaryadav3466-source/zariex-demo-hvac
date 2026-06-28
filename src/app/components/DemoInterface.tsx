@@ -6,16 +6,18 @@ import PhoneInputRow from './PhoneInputRow';
 
 export default function DemoInterface() {
   const searchParams = useSearchParams();
-  const [name, setName] = useState('Dr. Smith');
-  const [clinic, setClinic] = useState('Apex Dental');
+  const [name, setName] = useState('Prospect'); // 
+  const [business, setBusiness] = useState('Home Services'); // 
 
   useEffect(() => {
-    const paramName = searchParams?.get('name');
-    const paramClinic = searchParams?.get('clinic');
+    const paramName = searchParams.get('name');
+    const paramBusiness = searchParams.get('business'); // 
+
     if (paramName) setName(decodeURIComponent(paramName));
-    if (paramClinic) setClinic(decodeURIComponent(paramClinic));
+    if (paramBusiness) setBusiness(decodeURIComponent(paramBusiness));
   }, [searchParams]);
 
+  // Neeche return ke andar jahan pehle {clinic} print ho raha tha, wahan ab {business} print hoga.
   return (
     <div className="w-full h-screen bg-background flex flex-col overflow-hidden">
       {/* ── HEADER ── */}
@@ -72,7 +74,7 @@ export default function DemoInterface() {
           >
             Testing interface generated for{' '}
             <strong className="font-mono" style={{ fontWeight: 700 }}>
-              {name} // {clinic}
+              {name} // {business}
             </strong>
             .
           </h1>
