@@ -10,8 +10,8 @@ export default function DemoInterface() {
   const [business, setBusiness] = useState('Home Services'); // 
 
   useEffect(() => {
-    const paramName = searchParams.get('name');
-    const paramBusiness = searchParams.get('business'); // 
+    const paramName = searchParams?.get('name');
+    const paramBusiness = searchParams?.get('business'); // 
 
     if (paramName) setName(decodeURIComponent(paramName));
     if (paramBusiness) setBusiness(decodeURIComponent(paramBusiness));
